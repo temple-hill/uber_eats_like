@@ -1,0 +1,18 @@
+version: '3'
+services:
+  db:
+    platform: linux/amd64
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: 'password'
+      MYSQL_DATABASE: uber_eats_like
+      TZ: "Asia/Tokyo"
+    ports:
+    - '7305:3306'
+  #   volumes:
+  #   - ./docker/config/my.cnf:/etc/mysql/conf.d/my.cnf
+  #   - data
+  # data:
+  #   image: 'busybox'
+  #   volumes:
+  #   - './docker/storage/db:/var/lib/mysql'
