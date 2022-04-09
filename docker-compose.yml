@@ -1,7 +1,7 @@
 version: '3'
 services:
   db:
-    platform: linux/amd64
+    platform: linux/x86_64
     image: mysql:5.7
     environment:
       MYSQL_ROOT_PASSWORD: 'password'
@@ -9,10 +9,10 @@ services:
       TZ: "Asia/Tokyo"
     ports:
     - '7305:3306'
-  #   volumes:
-  #   - ./docker/config/my.cnf:/etc/mysql/conf.d/my.cnf
-  #   - data
-  # data:
-  #   image: 'busybox'
-  #   volumes:
-  #   - './docker/storage/db:/var/lib/mysql'
+    volumes:
+    - ./docker/config/my.cnf:/etc/mysql/conf.d/my.cnf
+    - data
+  data:
+    image: 'busybox'
+    volumes:
+    - './docker/storage/db:/var/lib/mysql'
